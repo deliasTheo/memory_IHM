@@ -3,6 +3,7 @@ package unilim.info.ihm.filRouge;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -16,7 +17,7 @@ public class FormMemoryFX extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
+	
 		Scene scene=new Scene (this.principal,600,250);
 		primaryStage.setTitle("Première fenêtre");
 		primaryStage.setScene(scene);

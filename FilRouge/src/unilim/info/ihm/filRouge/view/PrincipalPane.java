@@ -11,5 +11,13 @@ public class PrincipalPane extends VBox {
 		this.getChildren().addAll(memory,top);
 		
 	}
+
+	public MemoryPane getMemory() {
+		return memory;
+	}
+
+	public TopPane getTop() {
+		return top;
+	}
 	
 }

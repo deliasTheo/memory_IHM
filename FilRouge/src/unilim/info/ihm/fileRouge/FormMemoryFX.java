@@ -1,4 +1,4 @@
-package unilim.info.ihm.filRouge;
+package unilim.info.ihm.fileRouge;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -6,8 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import unilim.info.ihm.filRouge.view.MenuPane;
-import unilim.info.ihm.filRouge.view.PrincipalPane;
+import unilim.info.ihm.fileRouge.view.MenuPane;
+import unilim.info.ihm.fileRouge.view.PrincipalPane;
 
 public class FormMemoryFX extends Application {
 	

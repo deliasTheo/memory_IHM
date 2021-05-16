@@ -1,4 +1,4 @@
-package unilim.info.ihm.filRouge.view;
+package unilim.info.ihm.fileRouge.view;
 
 
 

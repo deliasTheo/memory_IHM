@@ -39,7 +39,7 @@ public class MemoryPane extends GridPane {
 	private Button btnCarte11;
 	private Button btnCarte12;
 	public MemoryPane() {	
-	
+
 		this.setHgap(5);
 		this.setVgap(7);
 	this.setAlignment(Pos.CENTER);

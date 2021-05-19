@@ -52,6 +52,9 @@ public class TopPane extends HBox {
 		this.getChildren().add(btnPause);
 		
 		
+		
+		
+		
 	}
 	
 	

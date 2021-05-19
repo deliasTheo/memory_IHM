@@ -1,4 +1,4 @@
-package unilim.info.ihm.fileRouge.view;
+package unilim.info.ihm.filRouge.view;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

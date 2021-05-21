@@ -1,52 +1,74 @@
 package unilim.info.ihm.filRouge.controller;
 
+import java.io.File;
+import java.nio.file.Paths;
+
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import unilim.info.ihm.filRouge.view.MemoryPane;
 
 public class MemoryController implements EventHandler<MouseEvent> {
-	private Button button;
-	int i=0;
-	private Image imgC=new Image("media/logoC.png");
-	private ImageView langageC = new ImageView(imgC);
-	private MemoryPane memory;
-	final Image imgCovid=new Image("media/covid.png");
-	final ImageView covid = new ImageView(imgCovid);
-	public MemoryController(Button button,MemoryPane memory) {
-		this.memory=memory;
-		this.button=button;
+    private Button button;
+    final private MemoryPane memory;
+        
+    final private Image imgC=new Image("media/logoC.png");
+    final private Image imgCovid=new Image("media/covid.png");
+   
+    final private ImageView covid = new ImageView(imgCovid);
+    final private ImageView langageC = new ImageView(imgC);
+    MediaPlayer mediaPlayer;
+	public void music() {
+		String s = "methodeF.mp3";
+		String uriString = new File("C:\\Users\\theop\\Documents\\Cours\\S2\\Javafx\\FilRouge\\memory_IHM\\FilRouge\\src\\media\\methodeF.mp3").toURI().toString();
+		MediaPlayer player = new MediaPlayer( new Media(uriString));
+		 player.play();
 		
-	
-}
-	@Override
-	public void handle(MouseEvent event) {
-		
-		button.setGraphic(langageC);
-		langageC.setFitHeight(80);
-		langageC.setFitWidth(80);
-		i++;
-
-		if (i==2) {
-			
-			
-			memory.setBtnCarte(memory.getBtnCarte());
-			memory.getBtnCarte().setGraphic(covid);
-			memory.getBtnCarte2().setGraphic(covid);
-			memory.getBtnCarte3().setGraphic(covid);
-			memory.getBtnCarte4().setGraphic(covid);
-			memory.getBtnCarte5().setGraphic(covid);
-			memory.getBtnCarte6().setGraphic(covid);
-			memory.getBtnCarte7().setGraphic(covid);
-			memory.getBtnCarte8().setGraphic(covid);
-			memory.getBtnCarte9().setGraphic(covid);
-			memory.getBtnCarte10().setGraphic(covid);
-			memory.getBtnCarte11().setGraphic(covid);
-			memory.getBtnCarte12().setGraphic(covid);
-			
-		}
 	}
+    
+	
+	
+
+	  
+	
+	
+	
+	
+    int i=0;
+    
+    public MemoryController(Button button,MemoryPane memory) {
+        this.memory=memory;
+        this.button=button;
+        
+        
+        langageC.setFitHeight(80);
+        langageC.setFitWidth(80);
+        covid.setFitHeight(80);
+    	covid.setFitWidth(80);
+    }
+    
+    @Override
+    public void handle(MouseEvent event) {
+    	this.music();
+    	
+        //((Button) event.getSource()).setGraphic(langageC);
+    	button.setGraphic(langageC);
+        i++;
+        // faire plein de if pour tous les boutons avec le i et tester le getGraphique 
+        if (i%2==0) {
+        	//memory.getBtnCarte().setGraphic(covid);
+        	//memory.getBtnCarte2().setGraphic(covid);
+        	button.setGraphic(covid);
+
+        }
+        
+        
+    }
 
 }
+  

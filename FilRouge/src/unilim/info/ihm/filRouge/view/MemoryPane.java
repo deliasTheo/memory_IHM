@@ -1,5 +1,6 @@
 package unilim.info.ihm.filRouge.view;
 
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -38,8 +39,10 @@ public class MemoryPane extends GridPane {
 	private Button btnCarte10;
 	private Button btnCarte11;
 	private Button btnCarte12;
+	
+	private MemoryController ecouteur;
 	public MemoryPane() {	
-
+	
 		this.setHgap(5);
 		this.setVgap(7);
 	this.setAlignment(Pos.CENTER);
@@ -49,11 +52,13 @@ public class MemoryPane extends GridPane {
 		
 		btnCarte=this.bouttonCovid();
 		this.add(btnCarte, 0, 0);
-		btnCarte.addEventFilter(MouseEvent.MOUSE_PRESSED, new MemoryController(btnCarte,this));
+		//ecouteur=new MemoryController(btnCarte,this);
+		// créer un controlleur général (sans construicteur pour le bouton) et pour récupéré le bouton qui invoque le eventHandler
+		btnCarte.addEventFilter(MouseEvent.MOUSE_PRESSED,new MemoryController(btnCarte,this)/*ecouteur*/);
 		
 		btnCarte2=this.bouttonCovid();
 		this.add(btnCarte2, 0, 1);
-		btnCarte2.addEventFilter(MouseEvent.MOUSE_PRESSED, new MemoryController(btnCarte2,this));
+		btnCarte2.addEventFilter(MouseEvent.MOUSE_PRESSED, new MemoryController(btnCarte2,this)/*ecouteur*/);
 		
 		btnCarte3=this.bouttonCovid();
 		this.add(btnCarte3, 0, 2);
@@ -282,71 +287,5 @@ public class MemoryPane extends GridPane {
 	public Button getBtnCarte12() {
 		return btnCarte12;
 	}
-
-
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

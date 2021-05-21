@@ -18,12 +18,15 @@ public class FormMemoryFX extends Application {
     PrincipalPane principal=new PrincipalPane();
     TopPane topPane=new TopPane();
     MemoryPane memory=new MemoryPane();
-    VBox hboxMenu=new MenuPane();
+    MenuPane hboxMenu=new MenuPane();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Scene scene=new Scene (this.principal,900,600);
+        Scene scene=new Scene (this.hboxMenu,900,600);
+        Scene scene2=new Scene (this.principal,900,600);
+        this.hboxMenu.getJoueur1().setOnAction(e -> primaryStage.setScene(scene2));
+        this.hboxMenu.getJoueur2().setOnAction(e -> primaryStage.setScene(scene2));
         primaryStage.setTitle("Fenêtre de jeu");
         primaryStage.setScene(scene);
         primaryStage.show();

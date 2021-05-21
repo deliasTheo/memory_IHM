@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import unilim.info.ihm.filRouge.controller.MemoryController;
+import unilim.info.ihm.filRouge.controller.MemoryControllerBtnCarte;
 
 public class MemoryPane extends GridPane {
 	
@@ -40,65 +40,74 @@ public class MemoryPane extends GridPane {
 	private Button btnCarte11;
 	private Button btnCarte12;
 	
-	private MemoryController ecouteur;
+	private MemoryControllerBtnCarte ecouteur = new MemoryControllerBtnCarte(this);
+
+	
+	private int i=0;
+	
 	public MemoryPane() {	
 	
 		this.setHgap(5);
 		this.setVgap(7);
-	this.setAlignment(Pos.CENTER);
-	this.setHgap(20);
+		this.setAlignment(Pos.CENTER);
+		this.setHgap(20);
 	
 		
 		
 		btnCarte=this.bouttonCovid();
 		this.add(btnCarte, 0, 0);
-		//ecouteur=new MemoryController(btnCarte,this);
-		// créer un controlleur général (sans construicteur pour le bouton) et pour récupéré le bouton qui invoque le eventHandler
-		btnCarte.addEventFilter(MouseEvent.MOUSE_PRESSED,new MemoryController(btnCarte,this)/*ecouteur*/);
+				
+		btnCarte.addEventFilter(MouseEvent.MOUSE_PRESSED,ecouteur);
+		
+		
 		
 		btnCarte2=this.bouttonCovid();
 		this.add(btnCarte2, 0, 1);
-		btnCarte2.addEventFilter(MouseEvent.MOUSE_PRESSED, new MemoryController(btnCarte2,this)/*ecouteur*/);
+		btnCarte2.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
 		
 		btnCarte3=this.bouttonCovid();
 		this.add(btnCarte3, 0, 2);
-		btnCarte3.addEventFilter(MouseEvent.MOUSE_PRESSED, new MemoryController(btnCarte3,this));
+		btnCarte3.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
+		
 		
 		btnCarte4=this.bouttonCovid();
 		this.add(btnCarte4, 1, 0);
-		btnCarte4.addEventFilter(MouseEvent.MOUSE_PRESSED, new MemoryController(btnCarte4,this));
+		btnCarte4.addEventFilter(MouseEvent.MOUSE_PRESSED,ecouteur);
 		
 		btnCarte5=this.bouttonCovid();
 		this.add(btnCarte5, 1, 1);
-		btnCarte5.addEventFilter(MouseEvent.MOUSE_PRESSED, new MemoryController(btnCarte5,this));
+		btnCarte5.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
 		
 		btnCarte6=this.bouttonCovid();
 		this.add(btnCarte6, 1, 2);
-		btnCarte6.addEventFilter(MouseEvent.MOUSE_PRESSED, new MemoryController(btnCarte6,this));
+		btnCarte6.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
+		
+		
 		
 		btnCarte7=this.bouttonCovid();
 		this.add(btnCarte7, 2, 0);
-		btnCarte7.addEventFilter(MouseEvent.MOUSE_PRESSED, new MemoryController(btnCarte7,this));
+		btnCarte7.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
+		
 		
 		btnCarte8=this.bouttonCovid();
 		this.add(btnCarte8, 2, 1);
-		btnCarte8.addEventFilter(MouseEvent.MOUSE_PRESSED, new MemoryController(btnCarte8,this));
+		btnCarte8.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
 		
 		btnCarte9=this.bouttonCovid();
 		this.add(btnCarte9, 2, 2);
-		btnCarte9.addEventFilter(MouseEvent.MOUSE_PRESSED, new MemoryController(btnCarte9,this));
+		btnCarte9.addEventFilter(MouseEvent.MOUSE_PRESSED,ecouteur);
 		
 		btnCarte10=this.bouttonCovid();
 		this.add(btnCarte10, 3, 0);
-		btnCarte10.addEventFilter(MouseEvent.MOUSE_PRESSED, new MemoryController(btnCarte10,this));
+		btnCarte10.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
 		
 		btnCarte11=this.bouttonCovid();
 		this.add(btnCarte11, 3, 1);
-		btnCarte11.addEventFilter(MouseEvent.MOUSE_PRESSED, new MemoryController(btnCarte11,this));
+		btnCarte11.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
 		
 		btnCarte12=this.bouttonCovid();
 		this.add(btnCarte12, 3, 2);
-		btnCarte12.addEventFilter(MouseEvent.MOUSE_PRESSED, new MemoryController(btnCarte12,this));
+		btnCarte12.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
 		
 	}
 	

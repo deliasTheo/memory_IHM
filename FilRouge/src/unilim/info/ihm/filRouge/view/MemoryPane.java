@@ -1,8 +1,14 @@
 package unilim.info.ihm.filRouge.view;
 
 
+
+
+import java.util.HashMap;
+import java.util.Map;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -12,7 +18,7 @@ import javafx.scene.layout.GridPane;
 import unilim.info.ihm.filRouge.controller.MemoryControllerBtnCarte;
 
 public class MemoryPane extends GridPane {
-	
+	private TopPane top;
 	public Image imgCovid=new Image("media/covid.png");
 	public ImageView covid = new ImageView(imgCovid);
 	public ImageView covid2 = new ImageView(imgCovid);
@@ -42,16 +48,23 @@ public class MemoryPane extends GridPane {
 	
 	private MemoryControllerBtnCarte ecouteur = new MemoryControllerBtnCarte(this);
 
-	
+
+	final Map<Integer,Integer[] > couple = new HashMap<>();
+			
+			
+	//IDEE DE MAP MAIS FONCTIONNE PAS POUR L'INSTANT POUR ALEATOIRE //
 	private int i=0;
+
 	
-	public MemoryPane() {	
-	
+	public MemoryPane(TopPane top) {	
+		
+		
+		this.top=top;
 		this.setHgap(5);
 		this.setVgap(7);
 		this.setAlignment(Pos.CENTER);
 		this.setHgap(20);
-	
+		couple.put(1, new Integer[] {0,0});
 		
 		
 		btnCarte=this.bouttonCovid();
@@ -141,6 +154,22 @@ public class MemoryPane extends GridPane {
 
 	public void setBtnCarte2(Button btnCarte2) {
 		this.btnCarte2 = btnCarte2;
+	}
+
+
+
+
+
+	public TopPane getTop() {
+		return top;
+	}
+
+
+
+
+
+	public void setTop(TopPane top) {
+		this.top = top;
 	}
 
 
@@ -297,4 +326,3 @@ public class MemoryPane extends GridPane {
 		return btnCarte12;
 	}
 }
-

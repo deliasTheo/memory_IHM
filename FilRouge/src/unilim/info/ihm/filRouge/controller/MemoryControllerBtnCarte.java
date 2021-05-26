@@ -13,10 +13,50 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import unilim.info.ihm.filRouge.view.MemoryPane;
 
-public class MemoryControllerBtnCarte implements EventHandler<MouseEvent> {
+
+public class MemoryControllerBtnCarte implements EventHandler<MouseEvent>  {
 
     final private MemoryPane memory;
+    
+    Button tempo;
+    Button tempo2;
         
+    final private Image imgHtml=new Image("media/HTML.png");
+    final private Image imgCss=new Image("media/css.png");
+    final private Image imgJavaScript=new Image("media/javaScript.jpg");
+    final private Image imgJava=new Image("media/java.jpg");
+    final private Image imgpython=new Image("media/python.png");
+    final private Image imgSql=new Image("media/sql.jpg");
+    final private Image imgBash=new Image("media/bash.jpg");
+    final private Image imgCd=new Image("media/c#.jpg");
+    final private Image imgCp=new Image("media/c++.png");
+    final private Image imgPhp=new Image("media/php.png");
+    final private Image imgC=new Image("media/logoC.png");
+    
+    final private ImageView html=new ImageView(imgHtml);
+    final private ImageView css=new ImageView(imgCss);
+    final private ImageView javaScript=new ImageView(imgJavaScript);
+    final private ImageView java=new ImageView(imgJava);
+    final private ImageView python=new ImageView(imgpython);
+    final private ImageView sql=new ImageView(imgSql);
+    final private ImageView bash=new ImageView(imgBash);
+    final private ImageView cd=new ImageView(imgCd);
+    final private ImageView cp=new ImageView(imgCp);
+    final private ImageView php=new ImageView(imgPhp);
+    final private ImageView c = new ImageView(imgC);
+    
+    final private ImageView html2=new ImageView(imgHtml);
+    final private ImageView css2=new ImageView(imgCss);
+    final private ImageView javaScript2=new ImageView(imgJavaScript);
+    final private ImageView java2=new ImageView(imgJava);
+    final private ImageView python2=new ImageView(imgpython);
+    final private ImageView sql2=new ImageView(imgSql);
+    final private ImageView bash2=new ImageView(imgBash);
+    final private ImageView cd2=new ImageView(imgCd);
+    final private ImageView cp2=new ImageView(imgCp);
+    final private ImageView php2=new ImageView(imgPhp);
+    final private ImageView c2 = new ImageView(imgC);
+    
 
     final private Image imgCovid=new Image("media/covid.png");  
     final private ImageView covid = new ImageView(imgCovid);
@@ -32,24 +72,7 @@ public class MemoryControllerBtnCarte implements EventHandler<MouseEvent> {
     final private ImageView covid11 = new ImageView(imgCovid);
     final private ImageView covid12 = new ImageView(imgCovid);
     
-    MediaPlayer mediaPlayer;
-    
-	final Image imgC=new Image("media/logoC.png");
-    final ImageView langageC1 = new ImageView(imgC);
-    final ImageView langageC2 = new ImageView(imgC);
-    final ImageView langageC3 = new ImageView(imgC);
-    final ImageView langageC4 = new ImageView(imgC);
-    final ImageView langageC5 = new ImageView(imgC);
-    final ImageView langageC6 = new ImageView(imgC);
-    final ImageView langageC7 = new ImageView(imgC);
-    final ImageView langageC8 = new ImageView(imgC);
-    final ImageView langageC9 = new ImageView(imgC);
-    final ImageView langageC10 = new ImageView(imgC);
-    final ImageView langageC11 = new ImageView(imgC);
-    final ImageView langageC12 = new ImageView(imgC);
-    
-    
-    
+
     
     int i;
 	
@@ -58,18 +81,20 @@ public class MemoryControllerBtnCarte implements EventHandler<MouseEvent> {
         this.memory=memory;
 
 
-        this.imageC(langageC1);
-        this.imageC(langageC2);
-        this.imageC(langageC3);
-        this.imageC(langageC4);
-        this.imageC(langageC5);
-        this.imageC(langageC6);
-        this.imageC(langageC7);
-        this.imageC(langageC8);
-        this.imageC(langageC9);
-        this.imageC(langageC10);
-        this.imageC(langageC11);
-        this.imageC(langageC12);
+
+        this.imageC(html);
+        this.imageC(html2);
+        this.imageC(css);
+        this.imageC(css2);
+        this.imageC(javaScript);
+        this.imageC(javaScript2);
+        this.imageC(bash);
+        this.imageC(bash2);
+        this.imageC(python);
+        this.imageC(python2);
+        this.imageC(c);
+        this.imageC(c2);
+
         
         this.imageC(covid);
         this.imageC(covid2);
@@ -88,6 +113,8 @@ public class MemoryControllerBtnCarte implements EventHandler<MouseEvent> {
 
     }
     
+   
+    
     public void music() {
 		String s = "methodeF.mp3";
 		String uriString = new File("src\\media\\methodeF.mp3").toURI().toString();
@@ -102,60 +129,164 @@ public class MemoryControllerBtnCarte implements EventHandler<MouseEvent> {
     public void handle(MouseEvent event) {
     	this.music();
     	
+
+    	
         if (event.getSource()==memory.getBtnCarte()) {
-        	memory.getBtnCarte().setGraphic(langageC1);
+        	memory.getBtnCarte().setGraphic(html);
         	i++;
+        	
+        	if (i%2==0) {
+        		tempo2=(Button) event.getSource();
+        		tempo2.setId("");
+        		if (tempo.getGraphic()== html2){
+        			tempo2.setId("var");
+        		}
+        	}
+        	
         }
         if (event.getSource()==memory.getBtnCarte2()) {
-        	memory.getBtnCarte2().setGraphic(langageC2);
+        	memory.getBtnCarte2().setGraphic(html2);
         	i++;
+        	if (i%2==0) {
+        		tempo2=(Button) event.getSource();
+        		tempo2.setId("");
+        		if (tempo.getGraphic()== html){
+        			
+        			tempo2.setId("var");
+        		}
+        	}
+        	
         }
         if (event.getSource()==memory.getBtnCarte3()) {
-        	memory.getBtnCarte3().setGraphic(langageC3);
+        	memory.getBtnCarte3().setGraphic(css);
         	i++;
+        	if (i%2==0) {
+        		tempo2=(Button) event.getSource();
+        		tempo2.setId("");
+        		if (tempo.getGraphic()== css2){
+        			tempo2.setId("var");
+        		}
+        	}
         }
         
         if (event.getSource()==memory.getBtnCarte4()) {
-        	memory.getBtnCarte4().setGraphic(langageC4);
+        	memory.getBtnCarte4().setGraphic(css2);
         	i++;
+        	if (i%2==0) {
+        		tempo2=(Button) event.getSource();
+        		tempo2.setId("");
+        		if (tempo.getGraphic()== css){
+        			tempo2.setId("var");
+        		}
+        	}
         }
         if (event.getSource()==memory.getBtnCarte5()) {
-        	memory.getBtnCarte5().setGraphic(langageC5);
+        	memory.getBtnCarte5().setGraphic(c);
         	i++;
+        	if (i%2==0) {
+        		tempo2=(Button) event.getSource();
+        		tempo2.setId("");
+        		if (tempo.getGraphic()== c2){
+        			tempo2.setId("var");
+        		}
+        	}
         }
         if (event.getSource()==memory.getBtnCarte6()) {
-        	memory.getBtnCarte6().setGraphic(langageC6);
+        	memory.getBtnCarte6().setGraphic(c2);
         	i++;
+        	if (i%2==0) {
+        		tempo2=(Button) event.getSource();
+        		tempo2.setId("");
+        		if (tempo.getGraphic()== c){
+        			tempo2.setId("var");
+        		}
+        	}
         }
         if (event.getSource()==memory.getBtnCarte7()) {
-        	memory.getBtnCarte7().setGraphic(langageC7);
+        	memory.getBtnCarte7().setGraphic(python);
         	i++;
+        	if (i%2==0) {
+        		tempo2=(Button) event.getSource();
+        		tempo2.setId("");
+        		if (tempo.getGraphic()== python2){
+        			tempo2.setId("var");
+        		}
+        	}
         }
         if (event.getSource()==memory.getBtnCarte8()) {
-        	memory.getBtnCarte8().setGraphic(langageC8);
+        	memory.getBtnCarte8().setGraphic(python2);
         	i++;
+        	if (i%2==0) {
+        		tempo2=(Button) event.getSource();
+        		tempo2.setId("");
+        		if (tempo.getGraphic()== python){
+        			tempo2.setId("var");
+        		}
+        	}
         }
         if (event.getSource()==memory.getBtnCarte9()) {
-        	memory.getBtnCarte9().setGraphic(langageC9);
+        	memory.getBtnCarte9().setGraphic(bash);
         	i++;
+        	if (i%2==0) {
+        		tempo2=(Button) event.getSource();
+        		tempo2.setId("");
+        		if (tempo.getGraphic()== bash2){
+        			tempo2.setId("var");
+        		}
+        	}
         }
         if (event.getSource()==memory.getBtnCarte10()) {
-        	memory.getBtnCarte10().setGraphic(langageC10);
+        	memory.getBtnCarte10().setGraphic(bash2);
         	i++;
+        	if (i%2==0) {
+        		tempo2=(Button) event.getSource();
+        		tempo2.setId("");
+        		if (tempo.getGraphic()== bash){
+        			tempo2.setId("var");
+        		}
+        	}
         }
         if (event.getSource()==memory.getBtnCarte11()) {
-        	memory.getBtnCarte11().setGraphic(langageC11);
+        	memory.getBtnCarte11().setGraphic(javaScript);
         	i++;
+        	if (i%2==0) {
+        		tempo2=(Button) event.getSource();
+        		tempo2.setId("");
+        		if (tempo.getGraphic()== javaScript2){
+        			tempo2.setId("var");
+        		}
+        	}
         }
         if (event.getSource()==memory.getBtnCarte12()) {
-        	memory.getBtnCarte12().setGraphic(langageC12);
+        	memory.getBtnCarte12().setGraphic(javaScript2);
         	i++;
+        	if (i%2==0) {
+        		tempo2=(Button) event.getSource();
+        		tempo2.setId("");
+        		if (tempo.getGraphic()== javaScript){
+        			tempo2.setId("var");
+        		}
+        	}
         }
 
-    	
+    	if (i%2==1) {
+    		tempo = (Button) event.getSource();
+    		tempo.setId("var");
+    	}
         
     	
         if (i%2==0) {
+        	if (tempo.getId()==tempo2.getId()) {
+        		
+        		tempo.setVisible(false);
+        		tempo2.setVisible(false);
+        		memory.getTop().setJoueur1(memory.getTop().getJoueur1()+1);
+
+        	}
+         
+    	
+        if (i%2==0) {
+
         	memory.getBtnCarte().setGraphic(covid);
         	memory.getBtnCarte2().setGraphic(covid2);
         	memory.getBtnCarte3().setGraphic(covid3);
@@ -170,6 +301,7 @@ public class MemoryControllerBtnCarte implements EventHandler<MouseEvent> {
         	memory.getBtnCarte12().setGraphic(covid12);
 
 
+        }
         }
         
         

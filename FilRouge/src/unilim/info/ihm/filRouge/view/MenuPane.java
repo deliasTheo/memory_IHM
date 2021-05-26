@@ -13,7 +13,9 @@ public class MenuPane extends VBox {
 	Button parametre=new Button("Paramètres");
 	Button quitter=new Button("Quitter");
 	Button joueur1 = new Button("1 Joueur");
-	Button joueur2 = new Button("2 Joueur");
+
+	Button joueur2 = new Button("2 Joueurs");
+
 	HBox hbJoueur = new HBox();
 	
 	public MenuPane() {
@@ -27,7 +29,7 @@ public class MenuPane extends VBox {
 		
 		this.jouer.setPrefSize(130, 50);
 		this.jouer.addEventFilter(MouseEvent.MOUSE_PRESSED, new MenuControllerJouer(this));
-		
+
 		this.parametre.setPrefSize(130, 50);
 		this.quitter.setPrefSize(130, 50);
 		

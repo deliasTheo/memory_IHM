@@ -15,19 +15,26 @@ public class MenuControllerJouer implements EventHandler<MouseEvent> {
 	@Override
 	public void handle(MouseEvent event) {
 		
-		menu.getJouer().setVisible(false);
-		menu.getJoueur1().setVisible(true);
-		menu.getJoueur2().setVisible(true);
+		if (event.getSource()==menu.getJouer()) {
+			menu.getJouer().setVisible(false);
+			menu.getJoueur1().setVisible(true);
+			menu.getJoueur2().setVisible(true);
+		}
+			
+		else {
+			menu.getJouer().setVisible(true);
+			menu.getJoueur1().setVisible(false);
+			menu.getJoueur2().setVisible(false);
+		}
 		
+	
 		
 		
 	}
-
-	
-	
-
-	
-	
-	
-	
 }
+
+	
+	
+
+	
+

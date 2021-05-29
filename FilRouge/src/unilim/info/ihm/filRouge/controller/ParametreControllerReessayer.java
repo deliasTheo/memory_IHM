@@ -14,22 +14,35 @@ import unilim.info.ihm.filRouge.view.TopPane;
 public class ParametreControllerReessayer implements EventHandler<MouseEvent> {
 
 	private MemoryPane memory;
-	public Image imgCovid=new Image("media/covid.png");
-	public ImageView covid = new ImageView(imgCovid);
-	public ImageView covid2 = new ImageView(imgCovid);
-	public ImageView covid3 = new ImageView(imgCovid);
-	public ImageView covid4 = new ImageView(imgCovid);
-	public ImageView covid5 = new ImageView(imgCovid);
-	public ImageView covid6 = new ImageView(imgCovid);
-	public ImageView covid7 = new ImageView(imgCovid);
-	public ImageView covid8 = new ImageView(imgCovid);
-	public ImageView covid9 = new ImageView(imgCovid);
-	public ImageView covid10 = new ImageView(imgCovid);
-	public ImageView covid11 = new ImageView(imgCovid);
-	public ImageView covid12 = new ImageView(imgCovid);
+	public Image imgCovid;
+	public ImageView covid;
+	public ImageView covid2;
+	public ImageView covid3;
+	public ImageView covid4;
+	public ImageView covid5;
+	public ImageView covid6;
+	public ImageView covid7;
+	public ImageView covid8;
+	public ImageView covid9;
+	public ImageView covid10;
+	public ImageView covid11;
+	public ImageView covid12;
 	
-	public ParametreControllerReessayer(MemoryPane memory) {
+	public ParametreControllerReessayer(MemoryPane memory, String cheminTheme) {
 		this.memory=memory;
+		this.imgCovid=new Image(cheminTheme);
+		this.covid = new ImageView(imgCovid);
+		this.covid2 = new ImageView(imgCovid);
+		this.covid3 = new ImageView(imgCovid);
+		this.covid4 = new ImageView(imgCovid);
+		this.covid5 = new ImageView(imgCovid);
+		this.covid6 = new ImageView(imgCovid);
+		this.covid7 = new ImageView(imgCovid);
+		this.covid8 = new ImageView(imgCovid);
+		this.covid9 = new ImageView(imgCovid);
+		this.covid10 = new ImageView(imgCovid);
+		this.covid11 = new ImageView(imgCovid);
+		this.covid12 = new ImageView(imgCovid);
 	}
 	
 	@Override
@@ -83,6 +96,8 @@ public class ParametreControllerReessayer implements EventHandler<MouseEvent> {
 	covid11.setFitWidth(80);
 	covid12.setFitHeight(80);
 	covid12.setFitWidth(80);
+	
+	this.memory.getEcouteur().setI(0);
 	
 	}
 }

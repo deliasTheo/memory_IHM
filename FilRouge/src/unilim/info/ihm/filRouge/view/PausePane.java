@@ -8,7 +8,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import unilim.info.ihm.filRouge.controller.MenuControllerJouer;
 import unilim.info.ihm.filRouge.controller.ParametreControllerReessayer;
 
 public class PausePane extends VBox {
@@ -34,8 +33,8 @@ public class PausePane extends VBox {
 		this.continuer.setPrefSize(200, 50);
 		this.reesayer.setPrefSize(200, 50);
 		this.btnMenu.setPrefSize(200, 50);
-		this.reesayer.addEventFilter(MouseEvent.MOUSE_PRESSED, new ParametreControllerReessayer(memory));
-		this.btnMenu.addEventFilter(MouseEvent.MOUSE_PRESSED, new MenuControllerJouer(menu));
+		this.reesayer.addEventFilter(MouseEvent.MOUSE_PRESSED, new ParametreControllerReessayer(memory,memory.getCheminTheme()));
+		this.btnMenu.addEventFilter(MouseEvent.MOUSE_PRESSED, new ParametreControllerReessayer(memory,memory.getCheminTheme()));
 		
 	}
 

@@ -3,8 +3,14 @@ package unilim.info.ihm.filRouge.view;
 
 
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
+import java.util.Set;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -15,24 +21,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import unilim.info.ihm.filRouge.controller.MemoryControllerBtnCarte;
 
 public class MemoryPane extends GridPane {
 	private TopPane top;
-	public Image imgCovid=new Image("media/covid.png");
-	public ImageView covid = new ImageView(imgCovid);
-	public ImageView covid2 = new ImageView(imgCovid);
-	public ImageView covid3 = new ImageView(imgCovid);
-	public ImageView covid4 = new ImageView(imgCovid);
-	public ImageView covid5 = new ImageView(imgCovid);
-	public ImageView covid6 = new ImageView(imgCovid);
-	public ImageView covid7 = new ImageView(imgCovid);
-	public ImageView covid8 = new ImageView(imgCovid);
-	public ImageView covid9 = new ImageView(imgCovid);
-	public ImageView covid10 = new ImageView(imgCovid);
-	public ImageView covid11 = new ImageView(imgCovid);
-	public ImageView covid12 = new ImageView(imgCovid);
-	
+
 	private Button btnCarte;
 	private Button btnCarte2;
 	private Button btnCarte3;
@@ -46,84 +40,90 @@ public class MemoryPane extends GridPane {
 	private Button btnCarte11;
 	private Button btnCarte12;
 	
-	private MemoryControllerBtnCarte ecouteur = new MemoryControllerBtnCarte(this);
+	private MemoryControllerBtnCarte ecouteur; 
 
-
-	final Map<Integer,Integer[] > couple = new HashMap<>();
-			
-			
-	//IDEE DE MAP MAIS FONCTIONNE PAS POUR L'INSTANT POUR ALEATOIRE //
-	private int i=0;
+	private String cheminTheme;
 
 	
-	public MemoryPane(TopPane top) {	
+
+
+
+	final List<Button> cartes = new ArrayList<Button>();	
+			
+
+
+	
+	public MemoryPane(TopPane top, String cheminTheme,Stage primaryStage) {	
+		this.cheminTheme=cheminTheme;
+		this.ecouteur=new MemoryControllerBtnCarte(this,cheminTheme,primaryStage);
+
+		btnCarte=this.bouttonCovid();
+		btnCarte.addEventFilter(MouseEvent.MOUSE_PRESSED,ecouteur);
+
+		btnCarte2=this.bouttonCovid();
+		btnCarte2.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
+
+		btnCarte3=this.bouttonCovid();
+		btnCarte3.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
+
+		btnCarte4=this.bouttonCovid();
+		btnCarte4.addEventFilter(MouseEvent.MOUSE_PRESSED,ecouteur);
+
+		btnCarte5=this.bouttonCovid();
+		btnCarte5.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
+
+		btnCarte6=this.bouttonCovid();
+		btnCarte6.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
+
+		btnCarte7=this.bouttonCovid();
+		btnCarte7.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
+
+		btnCarte8=this.bouttonCovid();
+		btnCarte8.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
+
+		btnCarte9=this.bouttonCovid();
+		btnCarte9.addEventFilter(MouseEvent.MOUSE_PRESSED,ecouteur);
+
+		btnCarte10=this.bouttonCovid();
+		btnCarte10.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
+
+		btnCarte11=this.bouttonCovid();
+		btnCarte11.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
+
+		btnCarte12=this.bouttonCovid();
+		btnCarte12.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
 		
+		cartes.add(btnCarte);
+		cartes.add(btnCarte2);
+		cartes.add(btnCarte3);
+		cartes.add(btnCarte4);
+		cartes.add(btnCarte5);
+		cartes.add(btnCarte6);
+		cartes.add(btnCarte7);
+		cartes.add(btnCarte8);
+		cartes.add(btnCarte9);
+		cartes.add(btnCarte10);
+		cartes.add(btnCarte11);
+		cartes.add(btnCarte12);
+		
+		Collections.shuffle(cartes);
 		
 		this.top=top;
 		this.setHgap(5);
 		this.setVgap(7);
 		this.setAlignment(Pos.CENTER);
 		this.setHgap(20);
-		couple.put(1, new Integer[] {0,0});
-		
-		
-		btnCarte=this.bouttonCovid();
-		this.add(btnCarte, 0, 0);
-				
-		btnCarte.addEventFilter(MouseEvent.MOUSE_PRESSED,ecouteur);
-		
-		
-		
-		btnCarte2=this.bouttonCovid();
-		this.add(btnCarte2, 0, 1);
-		btnCarte2.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
-		
-		btnCarte3=this.bouttonCovid();
-		this.add(btnCarte3, 0, 2);
-		btnCarte3.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
-		
-		
-		btnCarte4=this.bouttonCovid();
-		this.add(btnCarte4, 1, 0);
-		btnCarte4.addEventFilter(MouseEvent.MOUSE_PRESSED,ecouteur);
-		
-		btnCarte5=this.bouttonCovid();
-		this.add(btnCarte5, 1, 1);
-		btnCarte5.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
-		
-		btnCarte6=this.bouttonCovid();
-		this.add(btnCarte6, 1, 2);
-		btnCarte6.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
-		
-		
-		
-		btnCarte7=this.bouttonCovid();
-		this.add(btnCarte7, 2, 0);
-		btnCarte7.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
-		
-		
-		btnCarte8=this.bouttonCovid();
-		this.add(btnCarte8, 2, 1);
-		btnCarte8.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
-		
-		btnCarte9=this.bouttonCovid();
-		this.add(btnCarte9, 2, 2);
-		btnCarte9.addEventFilter(MouseEvent.MOUSE_PRESSED,ecouteur);
-		
-		btnCarte10=this.bouttonCovid();
-		this.add(btnCarte10, 3, 0);
-		btnCarte10.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
-		
-		btnCarte11=this.bouttonCovid();
-		this.add(btnCarte11, 3, 1);
-		btnCarte11.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
-		
-		btnCarte12=this.bouttonCovid();
-		this.add(btnCarte12, 3, 2);
-		btnCarte12.addEventFilter(MouseEvent.MOUSE_PRESSED, ecouteur);
-		
+	
+		for (int i = 0; i < 12; i++) {
+            this.add(this.cartes.get(i), i / 3, i % 3);
+        }
 	}
 	
+
+
+
+
+
 
 
 
@@ -131,11 +131,11 @@ public class MemoryPane extends GridPane {
 	public Button bouttonCovid() {
 		
 		Button button=new Button();
-		final Image imgCovid=new Image("media/covid.png");
-		final ImageView covid = new ImageView(imgCovid);
-		covid.setFitHeight(80);
-		covid.setFitWidth(80);
-		button.setGraphic(covid);
+		final Image img=new Image(cheminTheme);
+		final ImageView imgView = new ImageView(img);
+		imgView.setFitHeight(80);
+		imgView.setFitWidth(80);
+		button.setGraphic(imgView);
 		return button;
 		
 	}
@@ -158,6 +158,17 @@ public class MemoryPane extends GridPane {
 
 
 
+	public void setCheminTheme(String cheminTheme) {
+		this.cheminTheme = cheminTheme;
+	}
+
+
+
+
+
+	public String getCheminTheme() {
+		return cheminTheme;
+	}
 
 
 	public TopPane getTop() {
@@ -325,4 +336,23 @@ public class MemoryPane extends GridPane {
 	public Button getBtnCarte12() {
 		return btnCarte12;
 	}
+	
+	public MemoryControllerBtnCarte getEcouteur() {
+		return ecouteur;
+	}
+
+
+
+
+
+
+
+
+
+
+	public List<Button> getCartes() {
+		return cartes;
+	}
+
+
 }

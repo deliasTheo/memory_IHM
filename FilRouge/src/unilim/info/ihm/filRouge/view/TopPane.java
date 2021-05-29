@@ -5,6 +5,8 @@ package unilim.info.ihm.filRouge.view;
 import java.io.File;
 import java.io.FileInputStream;
 
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -14,7 +16,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import unilim.info.ihm.filRouge.controller.MenuControllerJouer;
 
 
 public class TopPane extends HBox {
@@ -23,7 +24,7 @@ public class TopPane extends HBox {
     public ImageView sablier = new ImageView();
     public Button btnPause=new Button();
     Integer joueur1 = 0;
-    Integer joueur2 = 0;
+    Label score;
     public TopPane() {
     	
         //IMAGE SABLIER //
@@ -32,9 +33,10 @@ public class TopPane extends HBox {
         sablier.setFitHeight(100);
         sablier.setFitWidth(130);
 
-
         //Score//
-        Label score = new Label(joueur1.toString() + " - " + joueur2.toString());   this.getChildren().add(score);
+        this.score= new Label(joueur1.toString());   
+        this.getChildren().add(score);
+       
         this.setAlignment(Pos.CENTER);
         this.setMargin(score, new Insets(0, 150, 0, 150));
 
@@ -52,7 +54,9 @@ public class TopPane extends HBox {
 		
     }  
     
-    
+    public Label getScore() {
+    	return score;
+    }
 	public Integer getJoueur1() {
 		return joueur1;
 	}
@@ -63,14 +67,6 @@ public class TopPane extends HBox {
 	}
 
 
-	public Integer getJoueur2() {
-		return joueur2;
-	}
-
-
-	public void setJoueur2(Integer joueur2) {
-		this.joueur2 = joueur2;
-	}
 
 
 	public Button getBtnPause() {

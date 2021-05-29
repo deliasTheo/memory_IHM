@@ -17,11 +17,7 @@ public class PrincipalPane extends VBox {
 
     }
     
-public PrincipalPane GenererMemePane() {
-	TopPane newTop=new TopPane();
-	MemoryPane newMemory=new MemoryPane(newTop);
-	return new PrincipalPane(newTop, newMemory);
-}
+
     public MemoryPane getMemory() {
         return memory;
 

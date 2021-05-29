@@ -2,8 +2,20 @@ package unilim.info.ihm.filRouge.controller;
 
 import java.io.File;
 import java.nio.file.Paths;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -11,6 +23,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+import unilim.info.ihm.filRouge.view.GagnePane;
 import unilim.info.ihm.filRouge.view.MemoryPane;
 
 
@@ -20,6 +35,8 @@ public class MemoryControllerBtnCarte implements EventHandler<MouseEvent>  {
     
     Button tempo;
     Button tempo2;
+    GagnePane gagne;
+    
         
     final private Image imgHtml=new Image("media/HTML.png");
     final private Image imgCss=new Image("media/css.png");
@@ -58,30 +75,46 @@ public class MemoryControllerBtnCarte implements EventHandler<MouseEvent>  {
     final private ImageView c2 = new ImageView(imgC);
     
 
-    final private Image imgCovid=new Image("media/covid.png");  
-    final private ImageView covid = new ImageView(imgCovid);
-    final private ImageView covid2 = new ImageView(imgCovid);
-    final private ImageView covid3 = new ImageView(imgCovid);
-    final private ImageView covid4 = new ImageView(imgCovid);
-    final private ImageView covid5 = new ImageView(imgCovid);
-    final private ImageView covid6 = new ImageView(imgCovid);
-    final private ImageView covid7 = new ImageView(imgCovid);
-    final private ImageView covid8 = new ImageView(imgCovid);
-    final private ImageView covid9 = new ImageView(imgCovid);
-    final private ImageView covid10 = new ImageView(imgCovid);
-    final private ImageView covid11 = new ImageView(imgCovid);
-    final private ImageView covid12 = new ImageView(imgCovid);
-    
-
+    final private Image imgCovid; 
+    final private ImageView covid; 
+    final private ImageView covid2;
+    final private ImageView covid3;
+    final private ImageView covid4;
+    final private ImageView covid5;
+    final private ImageView covid6;
+    final private ImageView covid7;
+    final private ImageView covid8;
+    final private ImageView covid9;
+    final private ImageView covid10;
+    final private ImageView covid11;
+    final private ImageView covid12;
+    private Stage primaryStage;
+   
     
     int i;
 	
     
-    public MemoryControllerBtnCarte(MemoryPane memory) {
+    public MemoryControllerBtnCarte(MemoryPane memory,String cheminTheme,Stage primaryStage) {
+    	
+    	
+    	this.gagne=new GagnePane();
         this.memory=memory;
-
-
-
+        this.primaryStage=primaryStage;
+        
+        this.imgCovid=new Image(cheminTheme); 
+        this.covid= new ImageView(imgCovid);
+        this.covid2= new ImageView(imgCovid);
+        this.covid3= new ImageView(imgCovid);
+        this.covid4= new ImageView(imgCovid);
+        this.covid5= new ImageView(imgCovid);
+        this.covid6= new ImageView(imgCovid);
+        this.covid7= new ImageView(imgCovid);
+        this.covid8= new ImageView(imgCovid);
+        this.covid9= new ImageView(imgCovid);
+        this.covid10= new ImageView(imgCovid);
+        this.covid11= new ImageView(imgCovid);
+        this.covid12= new ImageView(imgCovid);
+        
         this.imageC(html);
         this.imageC(html2);
         this.imageC(css);
@@ -127,9 +160,8 @@ public class MemoryControllerBtnCarte implements EventHandler<MouseEvent>  {
     
     @Override
     public void handle(MouseEvent event) {
-    	this.music();
+    	//this.music();
     	
-
     	
         if (event.getSource()==memory.getBtnCarte()) {
         	memory.getBtnCarte().setGraphic(html);
@@ -262,10 +294,12 @@ public class MemoryControllerBtnCarte implements EventHandler<MouseEvent>  {
         	i++;
         	if (i%2==0) {
         		tempo2=(Button) event.getSource();
-        		tempo2.setId("");
-        		if (tempo.getGraphic()== javaScript){
-        			tempo2.setId("var");
-        		}
+         		tempo2.setId("");
+
+         		if (tempo.getGraphic()== javaScript){
+         			tempo2.setId("var");
+         		}
+
         	}
         }
 
@@ -276,41 +310,59 @@ public class MemoryControllerBtnCarte implements EventHandler<MouseEvent>  {
         
     	
         if (i%2==0) {
-        	if (tempo.getId()==tempo2.getId()) {
+        	if (tempo.getId()==tempo2.getId() && tempo!=tempo2) {
         		
         		tempo.setVisible(false);
         		tempo2.setVisible(false);
         		memory.getTop().setJoueur1(memory.getTop().getJoueur1()+1);
-
+        		memory.getTop().getScore().setText(memory.getTop().getJoueur1().toString());
+        	}else {
+        		memory.getBtnCarte().setGraphic(covid);
+            	memory.getBtnCarte2().setGraphic(covid2);
+            	memory.getBtnCarte3().setGraphic(covid3);
+            	memory.getBtnCarte4().setGraphic(covid4);
+            	memory.getBtnCarte5().setGraphic(covid5);
+            	memory.getBtnCarte6().setGraphic(covid6);
+            	memory.getBtnCarte7().setGraphic(covid7);
+            	memory.getBtnCarte8().setGraphic(covid8);
+            	memory.getBtnCarte9().setGraphic(covid9);
+            	memory.getBtnCarte10().setGraphic(covid10);
+            	memory.getBtnCarte11().setGraphic(covid11);
+            	memory.getBtnCarte12().setGraphic(covid12);
         	}
-         
-    	
-        if (i%2==0) {
-
-        	memory.getBtnCarte().setGraphic(covid);
-        	memory.getBtnCarte2().setGraphic(covid2);
-        	memory.getBtnCarte3().setGraphic(covid3);
-        	memory.getBtnCarte4().setGraphic(covid4);
-        	memory.getBtnCarte5().setGraphic(covid5);
-        	memory.getBtnCarte6().setGraphic(covid6);
-        	memory.getBtnCarte7().setGraphic(covid7);
-        	memory.getBtnCarte8().setGraphic(covid8);
-        	memory.getBtnCarte9().setGraphic(covid9);
-        	memory.getBtnCarte10().setGraphic(covid10);
-        	memory.getBtnCarte11().setGraphic(covid11);
-        	memory.getBtnCarte12().setGraphic(covid12);
-
-
+	        
         }
-        }
+             
         
+        if (this.vide()) {
+        	
+        	this.primaryStage.setScene(new Scene (gagne,900,600));
+       }
         
     } 
+    
+    
+    public boolean vide() {
+    	return memory.getBtnCarte().isVisible()==false && memory.getBtnCarte2().isVisible()==false &&memory.getBtnCarte3().isVisible()==false &&memory.getBtnCarte4().isVisible()==false &&memory.getBtnCarte5().isVisible()==false &&memory.getBtnCarte6().isVisible()==false &&memory.getBtnCarte7().isVisible()==false &&memory.getBtnCarte8().isVisible()==false &&memory.getBtnCarte9().isVisible()==false &&memory.getBtnCarte10().isVisible()==false &&memory.getBtnCarte11().isVisible()==false &&memory.getBtnCarte12().isVisible()==false ;
+    }
+
+	public void setI(int i) {
+		this.i = i;
+	}
+
+
+
 	public void imageC(ImageView img) {
 			
 		img.setFitHeight(80);
     	img.setFitWidth(80);
 			
+	}
+
+
+
+	public GagnePane getGagne() {
+		return this.gagne;
 	}
 
 }

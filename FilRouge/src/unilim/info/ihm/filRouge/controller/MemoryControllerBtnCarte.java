@@ -98,8 +98,9 @@ public class MemoryControllerBtnCarte implements EventHandler<MouseEvent>  {
     public MemoryControllerBtnCarte(MemoryPane memory,String cheminTheme,Stage primaryStage) {
     	
     	
-    	this.gagne=new GagnePane();
+    	
         this.memory=memory;
+        //this.gagne=new GagnePane(memory);
         this.primaryStage=primaryStage;
         
         this.imgCovid=new Image(cheminTheme); 
@@ -311,34 +312,39 @@ public class MemoryControllerBtnCarte implements EventHandler<MouseEvent>  {
         
     	
         if (i%2==0) {
-
-		        	if (tempo.getId()==tempo2.getId() && tempo!=tempo2) {
-		        		
-		        		tempo.setVisible(false);
-		        		tempo2.setVisible(false);
-		        		memory.getTop().setJoueur1(memory.getTop().getJoueur1()+1);
-		        		memory.getTop().getScore().setText(memory.getTop().getJoueur1().toString());
-		        	}else {
-		        		memory.getBtnCarte().setGraphic(covid);
-		            	memory.getBtnCarte2().setGraphic(covid2);
-		            	memory.getBtnCarte3().setGraphic(covid3);
-		            	memory.getBtnCarte4().setGraphic(covid4);
-		            	memory.getBtnCarte5().setGraphic(covid5);
-		            	memory.getBtnCarte6().setGraphic(covid6);
-		            	memory.getBtnCarte7().setGraphic(covid7);
-		            	memory.getBtnCarte8().setGraphic(covid8);
-		            	memory.getBtnCarte9().setGraphic(covid9);
-		            	memory.getBtnCarte10().setGraphic(covid10);
-		            	memory.getBtnCarte11().setGraphic(covid11);
-		            	memory.getBtnCarte12().setGraphic(covid12);
-		        	}
+        	memory.getTop().getModel().setScore(memory.getTop().getModel().getScore()+1);
+        	if (i==2) {
+        		memory.getTop().getScore().setText(memory.getTop().getModel().getScore().toString() + " essai");
+        	}else {
+        		memory.getTop().getScore().setText(memory.getTop().getModel().getScore().toString() + " essais");
+        	}
+    		
+        	if (tempo.getId()==tempo2.getId() && tempo!=tempo2) {
+        		
+        		tempo.setVisible(false);
+        		tempo2.setVisible(false);
+        		
+        	}else {
+        		memory.getBtnCarte().setGraphic(covid);
+            	memory.getBtnCarte2().setGraphic(covid2);
+            	memory.getBtnCarte3().setGraphic(covid3);
+            	memory.getBtnCarte4().setGraphic(covid4);
+            	memory.getBtnCarte5().setGraphic(covid5);
+            	memory.getBtnCarte6().setGraphic(covid6);
+            	memory.getBtnCarte7().setGraphic(covid7);
+            	memory.getBtnCarte8().setGraphic(covid8);
+            	memory.getBtnCarte9().setGraphic(covid9);
+            	memory.getBtnCarte10().setGraphic(covid10);
+            	memory.getBtnCarte11().setGraphic(covid11);
+            	memory.getBtnCarte12().setGraphic(covid12);
+        	}
 
 	        
         }
              
         
         if (this.vide()) {
-        	
+        	this.gagne=new GagnePane(memory);
         	this.primaryStage.setScene(new Scene (gagne,900,600));
         	this.gagne.getRetourMenu().setOnAction(e -> primaryStage.setScene(new Scene (new MenuPane() ,900,600)));
        }

@@ -17,15 +17,20 @@ public class GagnePane extends VBox{
     Label cGagne=new Label("C'est gagné !!!");
      final Image image = new Image("media/coupe.png"); 
      final ImageView coupe = new ImageView(image); 
-    
+     MemoryPane memory;
+    Label score=new Label();
 
-    public GagnePane() {
-        this.getChildren().addAll(coupe,cGagne,retourMenu);
+    public GagnePane(MemoryPane memory) {
+    	this.memory=memory;
+    	score.setText("Vous avez fait : " + memory.getTop().getModel().getScore().toString());
+        this.getChildren().addAll(coupe,cGagne,score,retourMenu);
         this.setAlignment(Pos.CENTER);
         retourMenu.setPrefSize(200, 50);
 
+        score.setFont (Font.font ( "verdana ", FontWeight.BOLD, FontPosture.REGULAR, 20));
         cGagne.setFont (Font.font ( "verdana ", FontWeight.BOLD, FontPosture.REGULAR, 20));
         retourMenu.setFont (Font.font ( "verdana ", FontWeight.BOLD, FontPosture.REGULAR, 20));
+        this.setMargin(score, new Insets(20, 0, 0, 0));
         this.setMargin(cGagne, new Insets(20, 0, 0, 0));
         this.setMargin(retourMenu, new Insets(100, 0, 0, 0));
     }

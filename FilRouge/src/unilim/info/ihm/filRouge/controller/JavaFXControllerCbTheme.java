@@ -26,7 +26,7 @@ public class JavaFXControllerCbTheme implements EventHandler<MouseEvent> {
 		this.top = top;
 		this.parametre=parametre;	
 		this.primaryStage=primaryStage;
-		top.setJoueur1(0);
+		top.setNbScore(0);
 	}
 
 	@Override

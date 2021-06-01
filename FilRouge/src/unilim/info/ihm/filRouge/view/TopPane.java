@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import unilim.info.ihm.filRouge.model.Model;
 
 
 public class TopPane extends HBox {
@@ -23,18 +24,22 @@ public class TopPane extends HBox {
     public Image imgSablier=new Image("media/sablier.png");
     public ImageView sablier = new ImageView();
     public Button btnPause=new Button();
-    Integer joueur1 = 0;
+    Integer nbScore;
     Label score;
+    Model model;
+
     public TopPane() {
-    	
+    	this.model=new Model();
         //IMAGE SABLIER //
         sablier.setImage(imgSablier);
         this.getChildren().add(sablier);
         sablier.setFitHeight(100);
         sablier.setFitWidth(130);
-
+        
+        
+        
         //Score//
-        this.score= new Label(joueur1.toString());   
+        this.score= new Label(model.getScore().toString() + " essai");   
         this.getChildren().add(score);
        
         this.setAlignment(Pos.CENTER);
@@ -57,17 +62,19 @@ public class TopPane extends HBox {
     public Label getScore() {
     	return score;
     }
-	public Integer getJoueur1() {
-		return joueur1;
+	public Integer getNbScore() {
+		return nbScore;
 	}
 
 
-	public void setJoueur1(Integer joueur1) {
-		this.joueur1 = joueur1;
+	public void setNbScore(Integer nbScore) {
+		this.nbScore = nbScore;
 	}
 
 
-
+	public Model getModel() {
+		return model;
+	}
 
 	public Button getBtnPause() {
 		return btnPause;

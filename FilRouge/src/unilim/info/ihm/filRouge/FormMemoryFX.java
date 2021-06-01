@@ -58,7 +58,7 @@ public class FormMemoryFX extends Application {
         this.vboxParametre.getValider().setOnAction(e -> primaryStage.setScene(scene));
         this.vboxPause.getMenu().setOnAction(e -> primaryStage.setScene(scene));
         this.vboxPause.getContinuer().setOnAction(e -> primaryStage.setScene(new Scene (new PrincipalPane(topPane, controlTheme.getMemory()),900,600)));
-        this.memory.getEcouteur().getGagne().getRetourMenu().setOnAction(e -> primaryStage.setScene(scene));//pk le set se fait sur le mauvais retourmenu (bouton qui marche pas)
+        //this.memory.getEcouteur().getGagne().getRetourMenu().setOnAction(e -> primaryStage.setScene(scene));//pk le set se fait sur le mauvais retourmenu (bouton qui marche pas)
         this.vboxPause.getReesayer().addEventFilter(MouseEvent.MOUSE_PRESSED,controlTheme);        
         this.hboxMenu.getQuitter().setOnAction(e -> primaryStage.close());
         if(this.memory.getEcouteur().vide()) {
@@ -68,7 +68,7 @@ public class FormMemoryFX extends Application {
         	
         }
         
-       this.gagne.getRetourMenu().setOnAction(e -> primaryStage.setScene(scene));
+       //this.gagne.getRetourMenu().setOnAction(e -> primaryStage.setScene(scene));
         
         primaryStage.setTitle("Fenêtre de jeu");
         primaryStage.setScene(scene);

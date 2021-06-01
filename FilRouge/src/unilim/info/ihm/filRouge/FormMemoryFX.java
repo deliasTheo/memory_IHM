@@ -63,9 +63,11 @@ public class FormMemoryFX extends Application {
         this.hboxMenu.getQuitter().setOnAction(e -> primaryStage.close());
         if(this.memory.getEcouteur().vide()) {
         	Scene sceneFin=new Scene (this.gagne,900,600);
+        	System.out.println("coucou");
         	primaryStage.setScene(sceneFin);
         	
         }
+        
        this.gagne.getRetourMenu().setOnAction(e -> primaryStage.setScene(scene));
         
         primaryStage.setTitle("Fenêtre de jeu");

@@ -3,6 +3,7 @@ package unilim.info.ihm.filRouge;
 import java.nio.file.Paths;
 
 import javafx.application.Application;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -32,7 +33,7 @@ public class FormMemoryFX extends Application {
     public void start(Stage primaryStage) throws Exception {
     	this.topPane=new TopPane();
     	this.vboxParametre=new ParametrePane();
-        this.memory=new MemoryPane(topPane, "media/covid.png",primaryStage);
+        this.memory=new MemoryPane(topPane, "media/covid.png",primaryStage,"src/media/boing.mp4");
         this.hboxMenu=new MenuPane();
         this.principal=new PrincipalPane(topPane, memory);
         this.gagne =  memory.getEcouteur().getGagne();
@@ -51,6 +52,15 @@ public class FormMemoryFX extends Application {
         
  
         this.hboxMenu.getJouer().addEventFilter(MouseEvent.MOUSE_PRESSED,controlTheme);
+        this.hboxMenu.getJouer().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				memory.getTop().getModel().setScore(0);
+				memory.getTop().getScore().setText(memory.getTop().getModel().getScore().toString() + " essai");
+				
+			}
+		});  
        
         this.hboxMenu.getParametre().setOnAction(e -> primaryStage.setScene(sceneParametre));
         this.principal.getTop().btnPause.setOnAction(e -> primaryStage.setScene(scenePause));
@@ -58,9 +68,18 @@ public class FormMemoryFX extends Application {
         this.vboxParametre.getValider().setOnAction(e -> primaryStage.setScene(scene));
         this.vboxPause.getMenu().setOnAction(e -> primaryStage.setScene(scene));
         this.vboxPause.getContinuer().setOnAction(e -> primaryStage.setScene(new Scene (new PrincipalPane(topPane, controlTheme.getMemory()),900,600)));
-        //this.memory.getEcouteur().getGagne().getRetourMenu().setOnAction(e -> primaryStage.setScene(scene));//pk le set se fait sur le mauvais retourmenu (bouton qui marche pas)
-        this.vboxPause.getReesayer().addEventFilter(MouseEvent.MOUSE_PRESSED,controlTheme);        
+        this.vboxPause.getReesayer().addEventFilter(MouseEvent.MOUSE_PRESSED,controlTheme);  
+        this.vboxPause.getReesayer().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				memory.getTop().getModel().setScore(0);
+				memory.getTop().getScore().setText(memory.getTop().getModel().getScore().toString() + " essai");
+				
+			}
+		});  
         this.hboxMenu.getQuitter().setOnAction(e -> primaryStage.close());
+        
         if(this.memory.getEcouteur().vide()) {
         	Scene sceneFin=new Scene (this.gagne,900,600);
         	System.out.println("coucou");
@@ -68,12 +87,10 @@ public class FormMemoryFX extends Application {
         	
         }
         
-       //this.gagne.getRetourMenu().setOnAction(e -> primaryStage.setScene(scene));
         
         primaryStage.setTitle("Fenêtre de jeu");
         primaryStage.setScene(scene);
         primaryStage.show();
-        primaryStage.getIcons().add(topPane.imgSablier);
        
         //RANDOM ET LES PARAMETRES A FAIRE//
     }

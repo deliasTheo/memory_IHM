@@ -10,7 +10,6 @@ import javafx.scene.paint.Color;
 
 
 public class ParametrePane extends VBox {
-	ComboBox nombreDeCartes=new ComboBox();
 	ComboBox musique=new ComboBox();
 	ComboBox theme=new ComboBox();
 
@@ -20,19 +19,16 @@ public class ParametrePane extends VBox {
 	
 
 	public ParametrePane() {
-		vbParametre.getChildren().addAll(nombreDeCartes,musique,theme,valider,retourMenu);
+		vbParametre.getChildren().addAll(musique,theme,valider);
 		this.getChildren().addAll(vbParametre);
-		nombreDeCartes.setValue("nombreDeCartes");
-		nombreDeCartes.getItems().addAll("4x4","5x4","6x4");
 		
 		musique.setValue("Choix de la musique");
-		musique.getItems().addAll("Symphonie","La méthode","0,0,0,0");
+		musique.getItems().addAll("Card","Boing");
 		
 		theme.setValue("Choix des thèmes");
 		theme.getItems().addAll("Covid","Lamborghini");
 		
 
-		vbParametre.setMargin(nombreDeCartes, new Insets(0,0,30,0));
 		vbParametre.setMargin(musique, new Insets(0,0,30,0));
 		vbParametre.setMargin(theme, new Insets(0,0,30,0));
 
@@ -42,12 +38,10 @@ public class ParametrePane extends VBox {
 		vbParametre.setAlignment(Pos.CENTER);
 		
 		
-		this.nombreDeCartes.setPrefSize(250, 50);
 		this.musique.setPrefSize(250, 50);
 		this.theme.setPrefSize(250, 50);
 
 		this.valider.setPrefSize(100, 50);
-		this.retourMenu.setPrefSize(100, 50);
 		
 		
 		
@@ -76,13 +70,6 @@ public class ParametrePane extends VBox {
 	}
 	public void setVbParametre(VBox vbParametre) {
 		this.vbParametre = vbParametre;
-	}
-	public ComboBox getNombreDeCartes() {
-		return nombreDeCartes;
-	}
-
-	public void setNombreDeCartes(ComboBox nombreDeCartes) {
-		this.nombreDeCartes = nombreDeCartes;
 	}
 
 	public ComboBox getMusique() {

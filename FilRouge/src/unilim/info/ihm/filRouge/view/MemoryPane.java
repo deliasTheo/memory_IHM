@@ -43,7 +43,7 @@ public class MemoryPane extends GridPane {
 	private MemoryControllerBtnCarte ecouteur; 
 
 	private String cheminTheme;
-
+	private String cheminPlay;
 	
 
 
@@ -53,9 +53,10 @@ public class MemoryPane extends GridPane {
 
 
 	
-	public MemoryPane(TopPane top, String cheminTheme,Stage primaryStage) {	
+	public MemoryPane(TopPane top, String cheminTheme,Stage primaryStage, String cheminPlay) {	
+		this.cheminPlay=cheminPlay;
 		this.cheminTheme=cheminTheme;
-		this.ecouteur=new MemoryControllerBtnCarte(this,cheminTheme,primaryStage);
+		this.ecouteur=new MemoryControllerBtnCarte(this,cheminTheme,primaryStage,cheminPlay);
 
 		btnCarte=this.bouttonCovid();
 		btnCarte.addEventFilter(MouseEvent.MOUSE_PRESSED,ecouteur);
@@ -119,6 +120,32 @@ public class MemoryPane extends GridPane {
         }
 	}
 	
+
+
+
+
+
+
+
+
+
+	public String getCheminPlay() {
+		return cheminPlay;
+	}
+
+
+
+
+
+
+
+
+
+
+	public void setCheminPlay(String cheminPlay) {
+		this.cheminPlay = cheminPlay;
+	}
+
 
 
 

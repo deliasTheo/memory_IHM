@@ -32,14 +32,31 @@ public class JavaFXControllerCbTheme implements EventHandler<MouseEvent> {
 	@Override
 	public void handle(MouseEvent event) {
 		if (parametre.getTheme().getValue().equals("Lamborghini")) {
-			memory=new MemoryPane(top, "media/lambo.png",primaryStage);
-			principal=new PrincipalPane(top,memory);
-			primaryStage.setScene(new Scene (principal,900,600));	
+			if (parametre.getMusique().getValue().equals("Card")) {
+				
+				memory=new MemoryPane(top, "media/lambo.png",primaryStage,"src/media/card.mp4");
+				principal=new PrincipalPane(top,memory);
+				primaryStage.setScene(new Scene (principal,900,600));
+			}
+			if(parametre.getMusique().getValue().equals("Boing") || parametre.getMusique().getValue().equals("Choix de la musique")){
+				memory=new MemoryPane(top, "media/lambo.png",primaryStage,"src/media/boing.mp4");
+				principal=new PrincipalPane(top,memory);
+				primaryStage.setScene(new Scene (principal,900,600));
+			}
+			
 		}
 		if (parametre.getTheme().getValue().equals("Covid") || parametre.getTheme().getValue().equals("Choix des thèmes") ) {
-			memory=new MemoryPane(top, "media/covid.png",primaryStage);
-			principal=new PrincipalPane(top,memory);
-			primaryStage.setScene(new Scene (principal,900,600));	
+			if (parametre.getMusique().getValue().equals("Card")) {
+				
+				memory=new MemoryPane(top,"media/covid.png",primaryStage,"src/media/card.mp4");
+				principal=new PrincipalPane(top,memory);
+				primaryStage.setScene(new Scene (principal,900,600));
+			}
+			if(parametre.getMusique().getValue().equals("Boing") || parametre.getMusique().getValue().equals("Choix de la musique")){
+				memory=new MemoryPane(top, "media/covid.png",primaryStage,"src/media/boing.mp4");
+				principal=new PrincipalPane(top,memory);
+				primaryStage.setScene(new Scene (principal,900,600));
+			}	
 		}
 	}
 
